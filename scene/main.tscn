@@ -2,10 +2,17 @@
 
 [ext_resource type="PackedScene" uid="uid://dsbo668u45bio" path="res://scene/player.tscn" id="1_itxqv"]
 [ext_resource type="Script" uid="uid://b7a32kchquasl" path="res://scene/main.gd" id="1_wp4xf"]
+[ext_resource type="Texture2D" uid="uid://daw513g6p1faw" path="res://asset/Céu - Flappy bird.png" id="2_brvut"]
 [ext_resource type="Script" uid="uid://bdf0m52kjh6vk" path="res://script/spawner.gd" id="2_v0l8b"]
 
 [node name="Main" type="Node2D" unique_id=176879893]
 script = ExtResource("1_wp4xf")
+
+[node name="CéuFlappyBird" type="Sprite2D" parent="." unique_id=2056730123]
+texture_filter = 1
+position = Vector2(577, 322)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_brvut")
 
 [node name="Player" parent="." unique_id=675860985 instance=ExtResource("1_itxqv")]
 position = Vector2(90, 329)

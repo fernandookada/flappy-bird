@@ -1,20 +1,55 @@
 [gd_scene format=3 uid="uid://dsbo668u45bio"]
 
 [ext_resource type="Script" uid="uid://53ecbvdgfqib" path="res://script/player.gd" id="1_hjaqi"]
-[ext_resource type="Texture2D" uid="uid://cwt6iq5aosd4l" path="res://icon.svg" id="1_xo3ru"]
+[ext_resource type="Texture2D" uid="uid://bqkm2y3kmc8ie" path="res://asset/Sprite - Flappy Bird.png" id="2_hjaqi"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ajdik"]
-radius = 36.221542
+[sub_resource type="AtlasTexture" id="AtlasTexture_fvtld"]
+atlas = ExtResource("2_hjaqi")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ct4mp"]
+atlas = ExtResource("2_hjaqi")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5bb4h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fvtld")
+}],
+"loop": 1,
+"name": &"Plane-down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ct4mp")
+}],
+"loop": 1,
+"name": &"Plane-up",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nyukl"]
+size = Vector2(121, 53)
 
 [node name="Player" type="CharacterBody2D" unique_id=675860985]
 script = ExtResource("1_hjaqi")
 
-[node name="Icon" type="Sprite2D" parent="." unique_id=88023576]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_xo3ru")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1467764630]
+texture_filter = 1
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_5bb4h")
+animation = &"Plane-up"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=109184498]
-shape = SubResource("CircleShape2D_ajdik")
+position = Vector2(-4.5, -9.5)
+shape = SubResource("RectangleShape2D_nyukl")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1539245954]
 
