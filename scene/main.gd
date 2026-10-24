@@ -11,3 +11,6 @@ func _ready() -> void:
 func _on_scored() -> void:
 	score += 1
 	score_label.text = str("[wave]", score)
+
+func _on_player_died():
+	EventBus.game_finished.emit(score, -1)

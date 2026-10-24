@@ -4,14 +4,15 @@
 [ext_resource type="Script" uid="uid://b7a32kchquasl" path="res://scene/main.gd" id="1_wp4xf"]
 [ext_resource type="Texture2D" uid="uid://daw513g6p1faw" path="res://asset/Céu - Flappy bird.png" id="2_brvut"]
 [ext_resource type="Script" uid="uid://bdf0m52kjh6vk" path="res://script/spawner.gd" id="2_v0l8b"]
+[ext_resource type="PackedScene" uid="uid://b1cdtfldftnby" path="res://scene/game_over_screen.tscn" id="5_0ha60"]
 
 [node name="Main" type="Node2D" unique_id=176879893]
 script = ExtResource("1_wp4xf")
 
 [node name="CéuFlappyBird" type="Sprite2D" parent="." unique_id=2056730123]
 texture_filter = 1
-position = Vector2(577, 322)
-scale = Vector2(0.4, 0.4)
+position = Vector2(709, 255)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_brvut")
 
 [node name="Player" parent="." unique_id=675860985 instance=ExtResource("1_itxqv")]
@@ -25,6 +26,7 @@ script = ExtResource("2_v0l8b")
 autostart = true
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=259716043]
+process_mode = 3
 
 [node name="ScoreLabel" type="RichTextLabel" parent="HUD" unique_id=2112862385]
 unique_name_in_owner = true
@@ -35,4 +37,7 @@ text = "[rainbow]BUG"
 fit_content = true
 autowrap_mode = 0
 
+[node name="GameOverScreen" parent="HUD" unique_id=990340450 instance=ExtResource("5_0ha60")]
+
+[connection signal="died" from="Player" to="." method="_on_player_died"]
 [connection signal="timeout" from="Spawner/Timer" to="Spawner" method="_on_timer_timeout"]

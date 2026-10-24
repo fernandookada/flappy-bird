@@ -22,7 +22,6 @@ EventBus="*uid://cnxvww4mkrdf4"
 [display]
 
 window/stretch/mode="canvas_items"
-window/stretch/aspect="expand"
 
 [input]
 
